@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card class="mat-elevation-z8 chart">
+    <canvas [chartType]="barChartType" [datasets]="barChartData" [labels]="barChartLabels" [legend]="barChartLegend"
+      [options]="barChartOptions" baseChart></canvas>
+    <mat-radio-group (change)="changeChart(option)" [(ngModel)]="option" aria-label="Select an option">
+      <mat-radio-button value="1">PING</mat-radio-button>
+      <mat-radio-button value="2">DOWNLOAD</mat-radio-button>
+      <mat-radio-button value="3">UPLOAD</mat-radio-button>
+    </mat-radio-group>
+  </mat-card>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let result of results; index as i">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Result {{i + 1}}
+        </mat-panel-title>
+        <mat-panel-description class="description">
+          {{result.createdAt | date: 'short'}}
+          <button (click)="delete(result.id)" color="warn" mat-icon-button>
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+        <mat-list>
+          <mat-list-item>
+            ping: {{result.ping}}
+          </mat-list-item>
+          <mat-list-item>
+            download: {{result.download}}
+          </mat-list-item>
+          <mat-list-item>
+            upload: {{result.upload}}
+          </mat-list-item>
+        </mat-list>
+      </mat-panel-description>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>

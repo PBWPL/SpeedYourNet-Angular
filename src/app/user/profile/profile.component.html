@@ -1,0 +1,60 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+
+  <div fxFlex="95%">
+
+    <mat-card>
+      <mat-card-content>
+        <h2>My Profile</h2>
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="16px">
+
+          <div fxFlex.gt-sm="30%">
+            <div class="profile-card">
+              <img alt="default-avatar" src="/assets/images/user-128x128.png">
+
+              <h2 class="title">
+                {{user.email}}
+              </h2>
+              <span>
+                {{user.role.name}}
+              </span>
+            </div>
+          </div>
+
+          <div fxFlex.gt-sm="65%" fxLayout="column" fxLayoutAlign="center center">
+            <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" fxLayout.lt-sm="column" fxLayoutGap="8px"
+              novalidate>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input autocomplete="email" formControlName="email" matInput placeholder="Json@example.com" required>
+                <mat-error *ngIf="profileForm.hasError('required', 'email')">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="profileForm.hasError('email', 'email')">
+                  Enter a valid email
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input [type]="hide ? 'password' : 'text'" autocomplete="new-password" formControlName="password"
+                  matInput placeholder="********" required>
+                <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+                  [matTooltip]="hide ? 'Show password' : 'Hide password'" mat-icon-button matSuffix type="button">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="profileForm.hasError('required', 'password')">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="profileForm.hasError('minlength', 'password')">
+                  Password must be at least 5 characters long
+                </mat-error>
+              </mat-form-field>
+              <button [disabled]="!profileForm.valid" mat-raised-button type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

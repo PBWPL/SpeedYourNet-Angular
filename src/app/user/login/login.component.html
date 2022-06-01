@@ -1,0 +1,39 @@
+<app-partial-logo title="Login"></app-partial-logo>
+
+<mat-card>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" autocomplete="off" novalidate>
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input autocomplete="off" formControlName="email" matInput placeholder="Json@example.com" required>
+        <mat-error *ngIf="loginForm.hasError('required', 'email')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.hasError('email', 'email')">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" autocomplete="current-password" formControlName="password" matInput
+          placeholder="********" required>
+        <mat-error *ngIf="loginForm.hasError('required', 'password')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.hasError('minlength', 'password')">
+          Password must be at least 5 characters long
+        </mat-error>
+        <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+          [matTooltip]="hide ? 'Show password' : 'Hide password'" mat-icon-button matSuffix matTooltipPosition="below"
+          type="button">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button [disabled]="!loginForm.valid || submited" mat-raised-button type="submit">Login</button>
+    </form>
+  </mat-card-content>
+  <button mat-button routerLink="/user/recovery">Forgot password?</button>
+  <button mat-button routerLink="/user/register">Don't have account?</button>
+</mat-card>

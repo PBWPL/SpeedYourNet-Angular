@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <nav mat-tab-nav-bar>
+    <a #rla="routerLinkActive" *ngFor="let link of (role === 'BLOGGER') ? navLinks.slice(0,1) : navLinks"
+      [active]="rla.isActive" [routerLink]="link.link" mat-tab-link routerLinkActive>
+      {{link.label}}
+    </a>
+  </nav>
+</mat-toolbar>

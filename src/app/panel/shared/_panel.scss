@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+
+mat-card {
+  border-radius: unset;
+  min-height: 409px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+@media only screen and (max-width: 800px) and (orientation: portrait) {
+  .table {
+    display: none;
+  }
+}

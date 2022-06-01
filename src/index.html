@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <title>Speed Your Net</title>
+      <base href="/">
+      <meta charset="utf-8">
+      <meta name="description"
+            content="Speed Your Net - Application for testing response time and measuring download and upload speeds.">
+      <meta name="author" content="Piotr Bęc">
+      <meta name="keywords" content="Speed Your Net, speedtest">
+
+      <meta content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0,
+      viewport-fit=cover" name="viewport">
+
+      <link href="assets/favicon.ico" rel="icon" type="image/x-icon">
+      <link href="manifest.webmanifest" rel="manifest">
+
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!-- Windows -->
+      <meta content="IE=edge" http-equiv="X-UA-Compatible">
+      <meta content="browserconfig.xml" name="msapplication-config">
+
+      <!-- Android -->
+      <meta content="#3f51b5" name="theme-color">
+      <meta content="yes" name="mobile-web-app-capable" />
+      <meta content="Speed Your Net" name="application-name">
+      <link href="assets/icons/icon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+      <link href="assets/icons/icon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+      <link href="assets/icons/icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+
+      <!-- iOS -->
+      <meta content="yes" name="apple-touch-fullscreen" />
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta content="Speed Your Net" name="apple-mobile-web-app-title">
+      <meta content="default" name="apple-mobile-web-app-status-bar-style" />
+      <link href="assets/icons/icon-192x192.png" rel="apple-touch-icon">
+      <link href="assets/icons/icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+      <link href="assets/icons/icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+
+      <!-- Safari -->
+      <link color="#3f51b5" href="assets/logo.svg" rel="mask-icon">
+
+      <!-- iPhone splash screen -->
+      <link href="assets/splashscreens/iphone-640x1136.png"
+            media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1136x640.png"
+            media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-750x1334.png"
+            media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-828x1792.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1792x828.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1334x750.png"
+            media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1242x2208.png"
+            media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-2208x1242.png"
+            media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1242x2688.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-2688x1242.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1284x2778.png"
+            media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-2778x1284.png"
+            media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1125x2436.png"
+            media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-2436x1125.png"
+            media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-1170x2532.png"
+            media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/iphone-2532x1170.png"
+            media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+
+      <!-- iPad splash screen -->
+      <link href="assets/splashscreens/ipad-1536x2048.png"
+            media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2048x1536.png"
+            media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-1620x2160.png"
+            media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2160x1620.png"
+            media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-1668x2224.png"
+            media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2224x1668.png"
+            media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2048x2732.png"
+            media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2732x2048.png"
+            media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-1668x2388.png"
+            media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+      <link href="assets/splashscreens/ipad-2388x1668.png"
+            media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+</head>
+
+<body class="mat-typography">
+      <app-root></app-root>
+      <noscript>
+            Please enable JavaScript to continue using this application.
+            <br>
+            Speed Your Net
+      </noscript>
+</body>
+
+</html>

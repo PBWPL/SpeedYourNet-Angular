@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>{{data.option}}</h1>
+<mat-dialog-content>
+  <form (ngSubmit)="articleForm.valid && onSubmit()" [formGroup]="articleForm" autocomplete="off" fxLayout="column"
+    novalidate>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput placeholder="Title" required type="text">
+      <mat-error *ngIf="articleForm.hasError('required', 'title')">
+        Title is required
+      </mat-error>
+    </mat-form-field>
+
+    <img [src]="articleForm.get('image').valid ? articleForm.get('image').value : '/assets/images/user-128x128.png'"
+      alt="article image" class="image" matCardImageMedium>
+    <mat-form-field appearance="standard">
+      <mat-label>Image URL</mat-label>
+      <input formControlName="image" matInput placeholder="https://example.com/image.png" required type="text">
+      <mat-error *ngIf="articleForm.hasError('required', 'image')">
+        Image is required
+      </mat-error>
+      <mat-error *ngIf="articleForm.hasError('pattern', 'image')">
+        Bad pattern
+      </mat-error>
+    </mat-form-field>
+
+    <div class="content">
+      <ckeditor [config]="config" debounce="500" formControlName="content" name="ckeditor" required>
+      </ckeditor>
+      <mat-error *ngIf="articleForm.hasError('required', 'content')">
+        Content is required
+      </mat-error>
+    </div>
+
+    <mat-slide-toggle formControlName="published">Published?</mat-slide-toggle>
+
+    <button color="primary" mat-raised-button type="submit">{{data.option === 'add' ? 'Create' : 'Modify'}}</button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button (click)="onNoClick()" class="close" color="warn" mat-raised-button>Back</button>
+</mat-dialog-actions>

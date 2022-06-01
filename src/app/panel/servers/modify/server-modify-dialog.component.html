@@ -1,0 +1,87 @@
+<ng-container *ngIf="data.option === 'add'; then add; else modify"></ng-container>
+
+<ng-template #add>
+  <h1 mat-dialog-title>{{data.option}}</h1>
+  <mat-dialog-content>
+    <form (ngSubmit)="serverForm.valid && onSubmit()" [formGroup]="serverForm" autocomplete="off" fxLayout="column"
+      novalidate>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Ip or Host</mat-label>
+        <input formControlName="ip" matInput placeholder="0.0.0.0 or example.com" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'ip')">
+          Ip or Host is required
+        </mat-error>
+        <mat-error *ngIf="serverForm.hasError('pattern', 'ip')">
+          Bad pattern
+        </mat-error>
+      </mat-form-field>
+
+      <mat-slide-toggle formControlName="active">Active?</mat-slide-toggle>
+
+      <button color="primary" mat-raised-button type="submit">Create</button>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button (click)="onNoClick()" class="close" color="warn" mat-raised-button>Back</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #modify>
+  <h1 mat-dialog-title>{{data.option}}</h1>
+  <mat-dialog-content>
+    <form (ngSubmit)="serverForm.valid && onSubmit()" [formGroup]="serverForm" autocomplete="off" fxLayout="column"
+      novalidate>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Ip or Host</mat-label>
+        <input formControlName="ip" matInput placeholder="0.0.0.0 or example.com" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'ip')">
+          Ip or Host is required
+        </mat-error>
+        <mat-error *ngIf="serverForm.hasError('pattern', 'ip')">
+          Bad pattern
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Continent</mat-label>
+        <input formControlName="continent" matInput placeholder="Europa" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'continent')">
+          Continent is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Country</mat-label>
+        <input formControlName="country" matInput placeholder="Poland" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'country')">
+          Country is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Longitude</mat-label>
+        <input formControlName="longitude" matInput placeholder="21.0122" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'longitude')">
+          Longitude is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Latitude</mat-label>
+        <input formControlName="latitude" matInput placeholder="52.2297" required type="text">
+        <mat-error *ngIf="serverForm.hasError('required', 'latitude')">
+          Latitude is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-slide-toggle formControlName="active">Active?</mat-slide-toggle>
+
+      <button color="primary" mat-raised-button type="submit">Modify</button>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button (click)="onNoClick()" class="close" color="warn" mat-raised-button>Back</button>
+  </mat-dialog-actions>
+</ng-template>

@@ -1,0 +1,74 @@
+<app-panel-index></app-panel-index>
+<mat-card>
+  <app-partial-info></app-partial-info>
+  <div class="table">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input #input (keyup)="applyFilter($event)" matInput placeholder="Search">
+    </mat-form-field>
+
+    <button (click)="add()" color="primary" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div class="mat-elevation-z8">
+      <table [dataSource]="dataSource" mat-table matSort>
+
+        <ng-container matColumnDef="user_id">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>USER ID</th>
+          <td *matCellDef="let row" mat-cell>{{row.user_id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>TITLE</th>
+          <td *matCellDef="let row" mat-cell>{{row.title}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="published">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>PUBLISHED</th>
+          <td *matCellDef="let row" mat-cell>
+            <mat-icon [className]="row.published ? 'green' : 'red'">lens</mat-icon>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>CREATED AT</th>
+          <td *matCellDef="let row" mat-cell>{{row.createdAt | date: 'short'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedAt">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>UPDATED AT</th>
+          <td *matCellDef="let row" mat-cell>{{row.updatedAt | date: 'short'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="modify">
+          <th *matHeaderCellDef mat-header-cell>MODIFY</th>
+          <td *matCellDef="let row" mat-cell>
+            <button (click)="modify(row)" color="primary" mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th *matHeaderCellDef mat-header-cell>DELETE</th>
+          <td *matCellDef="let row" mat-cell>
+            <button (click)="delete(row)" color="warn" mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+        <tr *matNoDataRow class="mat-row">
+          <td *ngIf="!dataSource" class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          <td *ngIf="dataSource" class="mat-cell" colspan="4">No data!</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</mat-card>

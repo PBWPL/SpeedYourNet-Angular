@@ -1,0 +1,23 @@
+<app-partial-logo title="Recovery"></app-partial-logo>
+
+<mat-card>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="recoveryForm" autocomplete="off" novalidate>
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input autocomplete="off" formControlName="email" matInput placeholder="Json@example.com" required>
+        <mat-error *ngIf="recoveryForm.hasError('required', 'email')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="recoveryForm.hasError('email', 'email')">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <button [disabled]="!recoveryForm.valid" mat-raised-button type="submit">
+        Recovery
+      </button>
+    </form>
+  </mat-card-content>
+  <button mat-button routerLink="/user/login">Back</button>
+</mat-card>

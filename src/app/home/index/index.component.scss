@@ -1,0 +1,113 @@
+#speed-net {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: auto;
+
+  #gauge {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px 0 #fafafa, inset 0 -10px 20px 0 #424242;
+    box-sizing: border-box;
+    fill: #3f51b5;
+
+    path {
+      animation: show 0.2s linear;
+    }
+  }
+
+  #gauge-label {
+    position: absolute;
+    top: 47.5%;
+    left: 50%;
+    font-size: 32px;
+    transform: translate(-50%, -50%);
+    color: #3f51b5;
+
+    &:after {
+      content: "Mbps";
+      position: absolute;
+      font-size: 35%;
+      bottom: -20px;
+      left: 50%;
+      transform: translate(-50%, 100%);
+    }
+  }
+
+  &:before,
+  &:after {
+    display: block;
+    position: absolute;
+    bottom: 25%;
+    font-family: inherit;
+    font-size: 14px;
+    color: #3f51b5;
+  }
+
+  &:before {
+    content: "0";
+    left: 28%;
+  }
+
+  &:after {
+    content: "1000";
+    right: 28%;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+#select-server mat-form-field {
+  min-width: 250px;
+}
+
+mat-card {
+  text-align: center;
+}
+
+mat-card-header {
+  display: unset;
+}
+
+.speedtest-info {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .mat-card-content {
+    width: 33%;
+    max-width: 300px;
+
+    .value {
+      padding-left: 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

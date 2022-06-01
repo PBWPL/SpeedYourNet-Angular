@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  speed-your-net-docker:
+    image: speed-your-net-docker
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8085:80

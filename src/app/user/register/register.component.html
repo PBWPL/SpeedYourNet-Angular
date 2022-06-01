@@ -1,0 +1,50 @@
+<app-partial-logo title="Register"></app-partial-logo>
+
+<mat-card>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" novalidate>
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input autocomplete="email" formControlName="email" matInput placeholder="Json@example.com" required>
+        <mat-error *ngIf="registerForm.hasError('required', 'email')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('email', 'email')">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" autocomplete="new-password" formControlName="passwordOne" matInput
+          placeholder="********" required>
+        <mat-error *ngIf="registerForm.hasError('required', 'passwordOne')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('minlength', 'passwordOne')">
+          Password must be at least 5 characters long
+        </mat-error>
+      </mat-form-field>
+
+      <div fxLayoutAlign="center">
+        <button (click)="hide = !hide" [attr.aria-label]="hide ? 'Show password' : 'Hide password'"
+          [attr.aria-pressed]="hide" [matTooltip]="hide ? 'Show password' : 'Hide password'" mat-icon-button
+          matTooltipPosition="before" type="button">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </div>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Confirm Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" autocomplete="new-password" formControlName="passwordTwo" matInput
+          placeholder="********" required>
+        <mat-error *ngIf="true">
+          Password mismatch
+        </mat-error>
+      </mat-form-field>
+
+      <button [disabled]="!registerForm.valid" mat-raised-button type="submit">Register</button>
+    </form>
+  </mat-card-content>
+  <button mat-button routerLink="/user/login">I have already registered</button>
+</mat-card>

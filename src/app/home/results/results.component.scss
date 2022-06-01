@@ -1,0 +1,22 @@
+mat-card {
+  text-align: center;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.chart {
+  margin-bottom: 16px;
+}
+
+.description {
+  padding-right: 16px;
+  justify-content: space-between;
+
+  mat-icon {
+    height: auto;
+    width: 20px;
+    font-size: 20px;
+  }
+}

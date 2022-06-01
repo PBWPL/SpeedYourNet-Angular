@@ -1,0 +1,35 @@
+.portrait {
+  text-align: center;
+  display: none;
+
+  mat-icon {
+    animation: device 2s infinite;
+    height: auto;
+    width: 50px;
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 800px) and (orientation: portrait) {
+  .portrait {
+    display: block;
+  }
+}
+
+@keyframes device {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-90deg);
+  }
+}

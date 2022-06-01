@@ -1,0 +1,133 @@
+.mat-drawer-container {
+  background: url("/assets/images/background-1920x1080.png") no-repeat fixed
+    center center;
+  background-size: cover;
+}
+
+.menu-desktop {
+  font-weight: normal;
+  margin-left: 20px;
+
+  a {
+    line-height: 64px;
+    border-radius: 0;
+  }
+
+  .active {
+    background: #fff;
+    color: #333;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      bottom: 0;
+      z-index: 10;
+      position: absolute;
+      left: 50%;
+      border-style: solid;
+      border-width: 0 5px 6px 5px;
+      border-color: transparent transparent #333 transparent;
+    }
+  }
+}
+
+#nav-bar {
+  top: 0;
+  z-index: 2;
+}
+
+#nav-bar,
+mat-toolbar-row {
+  height: 64px;
+}
+
+#nav-bar,
+mat-sidenav,
+.spinner {
+  position: fixed;
+  left: 0;
+}
+
+mat-sidenav {
+  width: 170px;
+  top: 64px;
+}
+
+mat-nav-list mat-icon {
+  padding-right: 16px;
+}
+
+mat-sidenav-container {
+  top: 64px;
+  min-height: calc(100vh - 64px);
+}
+
+.logo {
+  fill: #fafafa;
+  margin: 0 4px 3px 0;
+  width: 56px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.divider-left,
+.divider-right,
+.sidenav-divider {
+  height: 100%;
+}
+
+.divider-left,
+.divider-right {
+  border-right-width: 3px !important;
+}
+
+.divider-left {
+  margin-left: 16px;
+}
+
+.layout-switcher {
+  .mat-icon {
+    font-size: 15px;
+    padding: 0 5px;
+    width: auto;
+  }
+}
+
+.divider-right {
+  margin-left: 16px;
+}
+
+.sidenav-divider {
+  border-top-width: 3px;
+}
+
+.loader {
+  height: 4px;
+}
+
+.spinner {
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  right: 0;
+  display: flex;
+  place-content: center space-around;
+  align-items: center;
+  z-index: 100;
+}
+
+.mat-drawer-content {
+  width: 1240px;
+  max-width: 100%;
+  margin: 16px auto auto;
+
+  .mat-card {
+    border-radius: 0;
+  }
+}

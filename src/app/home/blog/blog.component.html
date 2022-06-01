@@ -1,0 +1,25 @@
+<mat-card class="content">
+  <div *ngIf="!articles.length">Blog Empty</div>
+  <div *ngIf="articles.length" class="blog-wrapper" fxLayout="row wrap">
+    <div *ngFor="let article of articles" class="card" fxFlex="33%" fxFlex.sm="33%" fxFlex.xs="100%">
+      <mat-card class="mat-elevation-z8">
+        <mat-card-header fxLayout="column">
+          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-subtitle>
+            <span>
+              <mat-icon>today</mat-icon>
+              {{article.createdAt | date: 'short'}}
+            </span>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <div class="image">
+          <img [src]="(article.image) ? article.image : '/assets/images/blog-600x400.png'" alt="default-blog-image"
+            mat-card-image>
+        </div>
+        <mat-card-actions fxLayoutAlign="center center">
+          <button (click)="show(article.id)" color="primary" fxFlex mat-raised-button>READ</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</mat-card>

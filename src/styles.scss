@@ -1,0 +1,69 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-toastr/toastr";
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$dark-theme: mat-dark-theme(
+  mat-palette($mat-orange),
+  mat-palette($mat-blue-gray),
+  mat-palette($mat-deep-orange)
+);
+
+$dark-notification-theme: (
+  default: #fff,
+  info: mat-color(mat-palette($mat-blue), 400),
+  success: mat-color(mat-palette($mat-green), 400),
+  warning: mat-color(mat-palette($mat-yellow), 400),
+  error: mat-color(mat-palette($mat-red), 400),
+);
+
+.ngx-charts {
+  text {
+    fill: #000000 !important;
+  }
+}
+
+.dark-mode {
+  @include angular-material-color($dark-theme);
+
+  .logo {
+    fill: #000000 !important;
+  }
+
+  #speed-net {
+    #gauge {
+      fill: #ff9800 !important;
+    }
+
+    #gauge-label {
+      color: #ff9800 !important;
+    }
+
+    &:before,
+    &:after {
+      color: #ff9800 !important;
+    }
+  }
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-touch-callout: none;
+}
+
+.toast-top-right {
+  top: 64px;
+  right: 0;
+}
+
+.toast-container .ngx-toastr {
+  box-shadow: none;
+  border-radius: 0;
+}
